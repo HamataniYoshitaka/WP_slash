@@ -1,6 +1,7 @@
 <?php get_header(); ?>
-<div class="w-[1180px] mx-auto bg-white flex justify-between p-12">
-    <div class="">
+<div class="w-[1180px] mx-auto bg-white flex justify-between gap-7 p-12">
+
+    <div class="grow">
         <div class="flex">
             <h1 class="w-auto h-8 flex justify-center items-center text-sm font-bold mb-4 text-white bg-[#E6675C] px-2 py-1">
                 <span class="pr-1">SEARCH RESULTS FOR:</span><?php echo get_search_query(); ?>

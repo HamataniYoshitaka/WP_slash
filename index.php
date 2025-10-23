@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<div class="w-[1180px] mx-auto bg-white flex justify-between gap-7 p-12">
 <div class="grow">
     <div class="grid grid-cols-2 shrink-0 gap-x-7 gap-y-14 ">
         <?php if ( have_posts() ) : ?>
@@ -40,5 +41,5 @@
     <?php endif; ?>
 </div>
 <?php get_sidebar(); ?>
-
+</div>
 <?php get_footer(); ?>

@@ -1,5 +1,3 @@
-</div>
-
 <div class="w-full bg-[#282828]">
     <div class="w-[1180px] mx-auto p-12 flex gap-[428px]">
         <div>

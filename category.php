@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<div class="w-[1180px] mx-auto bg-white flex justify-between gap-7 p-12">
 <div class="grow">
     <?php
         // 現在のカテゴリー情報を取得
@@ -52,5 +53,5 @@
     <?php endif; ?>
 </div>
 <?php get_sidebar(); ?>
-
+</div>
 <?php get_footer(); ?>
