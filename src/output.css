@@ -1591,6 +1591,13 @@ video {
   box-sizing: content-box;
 }
 
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
 .line-clamp-none {
   overflow: visible;
   display: block;
@@ -1836,6 +1843,14 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[800px\] {
+  width: 800px;
+}
+
+.w-\[768px\] {
+  width: 768px;
 }
 
 .max-w-none {
@@ -2401,6 +2416,10 @@ video {
 
 .gap-\[428px\] {
   gap: 428px;
+}
+
+.gap-7 {
+  gap: 1.75rem;
 }
 
 .gap-x-7 {
@@ -5441,6 +5460,11 @@ body {
 
 .hover\:focus\:text-center:focus:hover {
   text-align: center;
+}
+
+.group:hover .group-hover\:text-\[\#E7685D\] {
+  --tw-text-opacity: 1;
+  color: rgb(231 104 93 / var(--tw-text-opacity, 1));
 }
 
 .group:hover .group-hover\:underline {

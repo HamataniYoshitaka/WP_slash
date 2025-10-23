@@ -140,3 +140,5 @@ document.getElementById('search-toggle').addEventListener('click', function() {
         header.classList.toggle('-translate-y-full', window.scrollY <= showAt);
     });
 </script>
+
+<div class="w-[1180px] mx-auto bg-white flex justify-between gap-7 p-12">
