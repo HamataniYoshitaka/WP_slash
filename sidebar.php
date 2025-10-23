@@ -80,5 +80,19 @@
                 </li>
             <?php endforeach; ?>
         </ul>
+        <h3 class="font-bold text-3xl mb-2 mt-12">TAGS</h3>
+        <ul class="">
+            <?php
+            $tags = get_tags();
+            foreach ($tags as $tag) :
+            ?>
+                <li>
+                    <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>"
+                        class="space-y-1 text-xs transition-all duration-300 hover:text-[#E7685D]">
+                        <?php echo esc_html($tag->name); ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
     </div>
 </div>
