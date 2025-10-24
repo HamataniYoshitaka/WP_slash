@@ -130,7 +130,9 @@ document.getElementById('search-toggle').addEventListener('click', function() {
 
 
 <div id="header" class="fixed top-0 bg-[#282828] w-full h-11 border-b-2 border-[#E6675C] -translate-y-full transition-transform duration-700 z-50 hidden lg:flex items-center">
-    <img src="<?php echo get_template_directory_uri(); ?>/src/image/logo.webp" alt="" class="w-24 ml-32">
+    <a href="<?php echo home_url(); ?>">
+        <img src="<?php echo get_template_directory_uri(); ?>/src/image/logo-white.webp" alt="" class="w-24 ml-32">
+    </a>
 </div>
 
 <script>
