@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="w-[1180px] mx-auto bg-white flex justify-between gap-7 p-12">
+<div class="xl:w-[1180px] mx-auto bg-white lg:flex justify-between gap-7 p-4 lg:p-12">
 
 <div>
     <?php
@@ -21,7 +21,7 @@
         <div class="h-8 grow border-y border-y-[#F4F4F4] border-r border-r-[#E6675C]"></div>
     </div>
 
-    <div class="grid grid-cols-2 shrink-0 gap-x-7 gap-y-14 ">
+    <div class="grid grid-cols-1 md:grid-cols-2 shrink-0 gap-x-7 gap-y-14 ">
         <?php if ( have_posts() ) : ?>
             <?php while ( have_posts() ) : the_post(); ?>
                 <?php get_template_part('components/archive-cell'); ?>

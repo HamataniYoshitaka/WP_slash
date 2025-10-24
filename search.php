@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="w-[1180px] mx-auto bg-white flex justify-between gap-7 p-12">
+<div class="xl:w-[1180px] mx-auto bg-white lg:flex justify-between gap-7 p-4 lg:p-12">
 
     <div class="grow">
         <div class="flex">
@@ -27,9 +27,9 @@
 
 
             <?php if ( have_posts() ) : ?>
-                <div class="grid grid-cols-2 shrink-0 gap-x-7 gap-y-14">
+                <div class="grid grid-cols-1 md:grid-cols-2 shrink-0 gap-x-7 gap-y-14">
                     <?php while ( have_posts() ) : the_post(); ?>
-                        <div class="w-[368px]">
+                        <div class="">
                             <article id="post-<?php the_ID(); ?>" <?php post_class('post-item'); ?>>
                             
                                 <div class="relative">
