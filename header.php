@@ -41,8 +41,7 @@
 
 <div class="bg-black w-full h-9">
     <div class="flex h-full">
-        <div class="relative ml-32 border-x-2 border-[#333333] w-[690px] h-full flex justify-center items-center">
-            <!-- 親コンテナを relative にするのがポイント -->
+        <div class="relative lg:ml-32 border-x-2 border-[#333333] w-[calc(100vw-100px)] lg:w-[690px] h-full flex justify-center items-center">
             <div class="news-slider bg-black text-white w-full overflow-hidden relative">
                 <div class="swiper mySwiper">
                     <!-- スライド群 -->
@@ -90,14 +89,16 @@
         </div>
     </div>
 </div>
-<div class="w-full h-32 bg-[#282828] md:bg-transparent flex justify-between items-center px-32">
+<div class="w-full h-32 bg-transparent flex justify-between items-center px-32">
     <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/src/image/logo.webp" alt="" class="w-56"></a>
-    <button class="md:hidden flex bg-[#E6675C] w-10 h-10 justify-center items-center">
-        <svg class="w-8 h-auto text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"/></svg>
-    </button>
+    <?php 
+    // <button class="md:hidden flex bg-[#E6675C] w-10 h-10 justify-center items-center">
+    //     <svg class="w-8 h-auto text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"/></svg>
+    // </button>
+    ?>
 </div>
-<div class="bg-[#282828] w-full h-11 border-b-2 border-[#E6675C]">
-    <div class="w-[1180px] mx-auto h-full border-r-2 border-[#333333] flex justify-end relative">
+<div class="hidden lg:block bg-[#282828] w-full h-11 border-b-2 border-[#E6675C]">
+    <div class="xl:w-[1180px] mx-auto h-full border-r-2 border-[#333333] flex justify-end relative">
     <!-- 🔍 検索ボタン -->
     <button id="search-toggle" class="w-11 h-full hover:bg-[#E6675C] flex justify-center items-center transition-all duration-500">
         <svg class="w-4 h-auto text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
@@ -128,7 +129,7 @@ document.getElementById('search-toggle').addEventListener('click', function() {
 </div>
 
 
-<div id="header" class="fixed top-0 bg-[#282828] w-full h-11 border-b-2 border-[#E6675C] -translate-y-full transition-transform duration-700 z-50 flex items-center">
+<div id="header" class="fixed top-0 bg-[#282828] w-full h-11 border-b-2 border-[#E6675C] -translate-y-full transition-transform duration-700 z-50 hidden lg:flex items-center">
     <img src="<?php echo get_template_directory_uri(); ?>/src/image/logo.webp" alt="" class="w-24 ml-32">
 </div>
 
