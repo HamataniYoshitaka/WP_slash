@@ -1,4 +1,4 @@
-<div class="w-72 shrink-0">
+<div class="lg:w-72 shrink-0 mt-20 lg:mt-0">
     <div class="sticky top-24 self-start text-[#333333]">
         <h3 class=" font-bold text-3xl mb-4">RECENT POSTS</h3>
         <?php
