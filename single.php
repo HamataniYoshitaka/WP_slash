@@ -1,13 +1,13 @@
 <?php get_header(); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <?php if ( has_post_thumbnail() ) : ?>
-        <div class="relative w-full h-[500px] overflow-hidden">
+        <div class="relative w-full h-80 lg:h-[500px] overflow-hidden">
             <!-- 画像本体（暗くする） -->
             <?php the_post_thumbnail('full', ['class' => 'absolute inset-0 w-full h-full object-cover brightness-50']); ?>
 
             <!-- テキストを中央配置 -->
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4 ">
-                <h1 class="w-[1140px] mx-auto text-4xl font-bold mb-3 leading-tight"><?php the_title(); ?></h1>
+                <h1 class="xl:w-[1140px] mx-auto text-3xl xl:text-4xl font-bold mb-3 leading-tight"><?php the_title(); ?></h1>
                 <div class="text-xs flex flex-wrap justify-center divide-x">
                     <div class="flex items-center gap-2 px-2">
                         <svg class="w-3 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M216 64C229.3 64 240 74.7 240 88L240 128L400 128L400 88C400 74.7 410.7 64 424 64C437.3 64 448 74.7 448 88L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 88C192 74.7 202.7 64 216 64zM216 176L160 176C151.2 176 144 183.2 144 192L144 240L496 240L496 192C496 183.2 488.8 176 480 176L216 176zM144 288L144 480C144 488.8 151.2 496 160 496L480 496C488.8 496 496 488.8 496 480L496 288L144 288z"/></svg>
@@ -23,13 +23,13 @@
         </div>
     <?php endif; ?>
 
-    <div class="w-[1180px] mx-auto bg-white flex justify-between gap-7 p-12">
+    <div class="xl:w-[1180px] mx-auto bg-white lg:flex justify-between gap-7 p-4 lg:p-12">
         <div class=" grow">
             <article class="">
             
                 <div class="">
                     <!-- 本文 -->
-                    <div class="prose prose-lg max-w-none">
+                    <div class="prose prose-lg max-w-none prose-a:break-words">
                         <?php the_content(); ?>
                     </div>
                 </div>
@@ -57,13 +57,13 @@
                 
         
             <!-- 前の記事・次の記事 -->
-            <div class="pt-12 flex justify-between items-center bg-white">
+            <div class="pt-12 grid grid-cols-1 md:grid-cols-2 bg-white">
                 <?php
                 $prev_post = get_previous_post();
                 $next_post = get_next_post();
                 ?>
 
-                    <div class="w-1/2  ">
+                    <div class="  ">
                     <?php if (!empty($prev_post)): ?>
                         <a href="<?php echo get_permalink($prev_post->ID); ?>" class="flex justify-between text-left group border border-[#F4F4F4]">
                             <?php if (has_post_thumbnail($prev_post->ID)): ?>
@@ -76,13 +76,13 @@
                                     <svg class="w-3 rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/></svg>
                                     <div class=" text-sm block">Previous Post</div>
                                 </div>
-                                <div class="w-72 text-gray-900 font-semibold text-base group-hover:underline truncate"><?php echo get_the_title($prev_post->ID); ?></div>
+                                <div class="w-[calc(100vw-8rem)] md:w-72 text-gray-900 font-semibold text-base group-hover:underline truncate"><?php echo get_the_title($prev_post->ID); ?></div>
                             </div>
                         </a>
                     <?php endif; ?>
                 </div>
 
-                <div class="w-1/2 text-right ">
+                <div class=" text-right ">
                     <?php if (!empty($next_post)): ?>
                         <a href="<?php echo get_permalink($next_post->ID); ?>" class="flex justify-between text-right group border border-[#F4F4F4]">
                             <div class="flex flex-col justify-center pl-2">
@@ -90,7 +90,7 @@
                                     <div class="text-sm block">Next Post</div>
                                     <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/></svg>
                                 </div>
-                                <div class="w-72 text-gray-900 font-semibold text-base group-hover:underline truncate"><?php echo get_the_title($next_post->ID); ?></div>
+                                <div class="w-[calc(100vw-8rem)] md:w-72 text-gray-900 font-semibold text-base group-hover:underline truncate"><?php echo get_the_title($next_post->ID); ?></div>
                             </div>
                             <?php if (has_post_thumbnail($next_post->ID)): ?>
                                 <div class="overflow-hidden w-16 h-16 shrink-0">

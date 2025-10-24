@@ -10,3 +10,10 @@ body {
     font-optical-sizing: auto;
     font-style: normal;
 }
+
+.prose a {
+  overflow-wrap: anywhere; /* modern browsers */
+  word-break: break-word;  /* fallback */
+  hyphens: auto;           /* optional */
+  color: #E7685D;      /* Tailwind blue-600 */
+}
