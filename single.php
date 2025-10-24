@@ -22,7 +22,7 @@
             </div>
         </div>
     <?php endif; ?>
-    
+
     <div class="w-[1180px] mx-auto bg-white flex justify-between gap-7 p-12">
         <div class=" grow">
             <article class="">
@@ -125,6 +125,10 @@
                 </div>
             </div>
 
+            <!-- コメントセクション -->
+            <div class="mt-10">
+                <?php comments_template(); ?>
+            </div>
 
         </div>
         <?php get_sidebar(); ?>
