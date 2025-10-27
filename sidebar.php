@@ -81,6 +81,7 @@
             <?php endforeach; ?>
         </ul>
         <h3 class="font-bold text-3xl mb-2 mt-12">TAGS</h3>
+        <?php /*
         <ul class="">
             <?php
             $tags = get_tags();
@@ -94,5 +95,20 @@
                 </li>
             <?php endforeach; ?>
         </ul>
+        */ ?>
+        <?php
+            // WP標準のタグクラウドをリスト(<ul><li>)形式で出力
+            wp_tag_cloud([
+                'taxonomy'  => 'post_tag',
+                'format'    => 'list',   // <ul class="wp-tag-cloud">...</ul> を出力
+                'orderby'   => 'name',
+                'order'     => 'ASC',
+                'number'    => 45,
+                // サイズのばらつきを無効化（同一サイズにする）
+                // 'smallest'  => 0.875,    // text-xs 相当
+                // 'largest'   => 0.875,
+                // 'unit'      => 'rem',
+            ]);
+        ?>
     </div>
 </div>

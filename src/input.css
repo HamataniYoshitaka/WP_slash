@@ -17,3 +17,10 @@ body {
   hyphens: auto;           /* optional */
   color: #E7685D;      /* Tailwind blue-600 */
 }
+.wp-tag-cloud {
+  @apply flex flex-wrap gap-x-2 gap-y-0 items-center;
+}
+.wp-tag-cloud a {
+  @apply hover:text-[#E7685D] transition-colors duration-300;
+
+}

@@ -3,11 +3,11 @@
         <!-- サムネイル -->
         <?php if ( has_post_thumbnail() ) : ?>
             <a href="<?php the_permalink(); ?>" class="">
-                <?php the_post_thumbnail('full'); ?>
+                <?php the_post_thumbnail('large', array('class' => 'w-full h-[calc(60vw)] md:h-52 object-cover')); ?>
             </a>
         <?php else: ?>
             <a href="<?php the_permalink(); ?>">
-                <img src="https://placehold.jp/368x245.png?text=No+image" alt="" />
+                <img class="w-full h-[calc(60vw)] md:h-52 object-cover" src="https://placehold.jp/368x245.png?text=No+image" alt="" />
             </a>
         <?php endif; ?>
 
