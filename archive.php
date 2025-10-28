@@ -1,7 +1,7 @@
 <?php get_header(); ?>
-<div class="xl:w-[1180px] mx-auto bg-white lg:flex justify-between gap-7 p-4 lg:p-12">
+<div class="xl:w-[1180px] mx-auto bg-white lg:flex justify-between gap-7 px-4 lg:px-12">
+    <div class="grow py-4 lg:py-12">
 
-<div>
     <?php
     if (is_day()) {
         $title = get_the_date('Y年m月d日');

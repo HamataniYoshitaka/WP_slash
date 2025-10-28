@@ -1,6 +1,7 @@
 <?php get_header(); ?>
-<div class="xl:w-[1180px] mx-auto bg-white lg:flex justify-between gap-7 p-4 lg:p-12">
-<div class="grow">
+<div class="xl:w-[1180px] mx-auto bg-white lg:flex justify-between gap-7 px-4 lg:px-12">
+    <div class="grow py-4 lg:py-12">
+
     <?php
         // 現在のカテゴリー情報を取得
         $category = get_queried_object();
@@ -8,7 +9,7 @@
     
     <div class="flex">
         <h1 class="w-auto h-8 flex justify-center items-center text-sm font-bold mb-4 text-white bg-[#E6675C] px-2 py-1">
-            <span class="pr-1">TAG ARCHIVES:</span><?php echo esc_html( $category->name ); ?>
+            <span class="pr-1">CATEGORY ARCHIVES:</span><?php echo esc_html( $category->name ); ?>
         </h1>
         <div class="h-8 grow border-y border-y-[#F4F4F4] border-r border-r-[#E6675C]"></div>
     </div>

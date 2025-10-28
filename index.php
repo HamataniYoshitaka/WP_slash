@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div class="xl:w-[1180px] mx-auto bg-white lg:flex justify-between gap-7 px-4 lg:px-12">
-    <div class="grow px-4 lg:py-12">
+    <div class="grow py-4 lg:py-12">
         <div class="grid grid-cols-1 md:grid-cols-2 shrink-0 gap-x-7 gap-y-14 ">
             <?php if ( have_posts() ) : ?>
                 <?php while ( have_posts() ) : the_post(); ?>
