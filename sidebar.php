@@ -1,6 +1,6 @@
 <div class="lg:w-72 shrink-0 mt-20 lg:mt-0">
-    <div class="sticky top-24 self-start text-[#333333]">
-        <h3 class=" font-bold text-3xl mb-4">RECENT POSTS</h3>
+    <div class="sticky top-0 py-12 self-start text-[#333333] md:overflow-y-auto md:max-h-[calc(100vh)] no-scrollbar">
+        <h3 class=" font-bold text-3xl mb-4 text-neutral-500">RECENT POSTS</h3>
         <?php
             // 最新記事5件を取得して表示する例（テンプレート用）
             $query = new WP_Query( array(
@@ -31,7 +31,7 @@
                                         <?php echo get_the_date('Y年m月d日'); ?>
                                     </time>
                                 </div>
-                                <div class="line-clamp-2"><?php the_title(); ?></div>
+                                <div class="line-clamp-2 font-bold"><?php the_title(); ?></div>
                             </div>
                         </a>
                         
@@ -42,7 +42,7 @@
             endif;
             wp_reset_postdata();
         ?>
-        <h3 class="font-bold text-3xl mb-2 mt-12">MONTHLY ARCHIVES</h3>
+        <h3 class="font-bold text-3xl mb-2 mt-12 text-neutral-500">MONTHLY ARCHIVES</h3>
         <ul class="space-y-1">
             <?php
                 global $wpdb;
@@ -60,13 +60,13 @@
             ?>
                 <li>
                     <a href="<?php echo esc_url($url); ?>"
-                        class="space-y-1 text-xs transition-all duration-300 hover:text-[#E7685D]">
+                        class="font-bold space-y-1 text-xs transition-all duration-300 hover:text-[#E7685D]">
                         <?php echo esc_html($label); ?>
                     </a>
                 </li>
             <?php endforeach; ?>
         </ul>
-        <h3 class="font-bold text-3xl mb-2 mt-12">CATEGORIES</h3>
+        <h3 class="font-bold text-3xl mb-2 mt-12 text-neutral-500">CATEGORIES</h3>
         <ul class="">
             <?php
             $categories = get_categories();
@@ -74,28 +74,13 @@
             ?>
                 <li>
                     <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>"
-                        class="space-y-1 text-xs transition-all duration-300 hover:text-[#E7685D]">
+                        class="space-y-1 text-xs transition-all font-bold duration-300 hover:text-[#E7685D]">
                         <?php echo esc_html($category->name); ?>
                     </a>
                 </li>
             <?php endforeach; ?>
         </ul>
-        <h3 class="font-bold text-3xl mb-2 mt-12">TAGS</h3>
-        <?php /*
-        <ul class="">
-            <?php
-            $tags = get_tags();
-            foreach ($tags as $tag) :
-            ?>
-                <li>
-                    <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>"
-                        class="space-y-1 text-xs transition-all duration-300 hover:text-[#E7685D]">
-                        <?php echo esc_html($tag->name); ?>
-                    </a>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-        */ ?>
+        <h3 class="font-bold text-3xl mb-2 mt-12 text-neutral-500">TAGS</h3>
         <?php
             // WP標準のタグクラウドをリスト(<ul><li>)形式で出力
             wp_tag_cloud([

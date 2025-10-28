@@ -102,12 +102,12 @@
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="mt-10 p-6 bg-[#F4F4F4] flex items-start space-x-4">
+            <div class="mt-10 p-6 bg-[#F4F4F4] flex flex-col md:flex-row items-center md:items-start space-x-4">
                 <!-- 投稿者アイコン -->
                 <?php echo get_avatar( get_the_author_meta('ID'), 80, '', '', array( 'class' => 'w-36 h-36' ) ); ?>
 
                 <!-- 投稿者情報 -->
-                <div>
+                <div class="text-center md:text-left">
                     <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta('ID') ) ); ?>"
                         class="inline-block mt-3 text-lg text-[#333333] font-bold hover:text-[#E6675C] transition-all duration-300">
                         <?php the_author(); ?>
