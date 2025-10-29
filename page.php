@@ -57,74 +57,8 @@
             </article>
                 
         
-            <!-- 前の記事・次の記事 -->
-            <div class="pt-12 grid grid-cols-1 md:grid-cols-2 bg-white">
-                <?php
-                $prev_post = get_previous_post();
-                $next_post = get_next_post();
-                ?>
-
-                    <div class="  ">
-                    <?php if (!empty($prev_post)): ?>
-                        <a href="<?php echo get_permalink($prev_post->ID); ?>" class="flex justify-between text-left group border border-[#F4F4F4]">
-                            <?php if (has_post_thumbnail($prev_post->ID)): ?>
-                                <div class="overflow-hidden w-16 h-16 shrink-0">
-                                    <?php echo get_the_post_thumbnail($prev_post->ID, 'thumbnail', ['class' => ' object-cover group-hover:opacity-80 transition-all duration-300']); ?>
-                                </div>
-                            <?php endif; ?>
-                            <div class="flex flex-col justify-center pr-2">
-                                <div class="flex items-center text-gray-600 text-base">
-                                    <svg class="w-3 rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/></svg>
-                                    <div class=" text-sm block">Previous Post</div>
-                                </div>
-                                <div class="w-[calc(100vw-8rem)] md:w-72 text-gray-900 font-semibold text-base group-hover:underline truncate"><?php echo get_the_title($prev_post->ID); ?></div>
-                            </div>
-                        </a>
-                    <?php endif; ?>
-                </div>
-
-                <div class=" text-right ">
-                    <?php if (!empty($next_post)): ?>
-                        <a href="<?php echo get_permalink($next_post->ID); ?>" class="flex justify-between text-right group border border-[#F4F4F4]">
-                            <div class="flex flex-col justify-center pl-2">
-                                <div class="flex items-center text-gray-600 text-base justify-end">
-                                    <div class="text-sm block">Next Post</div>
-                                    <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/></svg>
-                                </div>
-                                <div class="w-[calc(100vw-8rem)] md:w-72 text-gray-900 font-semibold text-base group-hover:underline truncate"><?php echo get_the_title($next_post->ID); ?></div>
-                            </div>
-                            <?php if (has_post_thumbnail($next_post->ID)): ?>
-                                <div class="overflow-hidden w-16 h-16 shrink-0">
-                                    <?php echo get_the_post_thumbnail($next_post->ID, 'thumbnail', ['class' => 'object-cover group-hover:opacity-80 transition-all duration-300']); ?>
-                                </div>
-                            <?php endif; ?>
-                            
-                        </a>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <div class="mt-10 p-6 bg-[#F4F4F4] flex items-start space-x-4">
-                <!-- 投稿者アイコン -->
-                <?php echo get_avatar( get_the_author_meta('ID'), 80, '', '', array( 'class' => 'w-36 h-36' ) ); ?>
-
-                <!-- 投稿者情報 -->
-                <div>
-                    <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta('ID') ) ); ?>"
-                        class="inline-block mt-3 text-lg text-[#333333] font-bold hover:text-[#E6675C] transition-all duration-300">
-                        <?php the_author(); ?>
-                    </a>
-
-                    <?php if ( get_the_author_meta('description') ) : ?>
-                        <p class="text-[#747474] text-sm leading-relaxed pt-2">
-                            <?php echo nl2br( esc_html( get_the_author_meta('description') ) ); ?>
-                        </p>
-                    <?php else : ?>
-                        <p class="text-[#747474] text-sm pt-2">プロフィール情報はまだありません。</p>
-                    <?php endif; ?>
-
-                    
-                </div>
-            </div>
+            
+            
 
             <!-- コメントセクション -->
             <div class="mt-10">
