@@ -4219,6 +4219,22 @@ body {
   scrollbar-width: none;
 }
 
+/* Ensure Gutenberg embeds keep a 16:9 ratio */
+
+.wp-block-embed.wp-embed-aspect-16-9 .wp-block-embed__wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.wp-block-embed.wp-embed-aspect-16-9 .wp-block-embed__wrapper iframe,
+.wp-block-embed.wp-embed-aspect-16-9 .wp-block-embed__wrapper embed,
+.wp-block-embed.wp-embed-aspect-16-9 .wp-block-embed__wrapper object {
+  width: 100%;
+  height: 100% !important;
+  /* override inline height attributes from providers */
+  display: block;
+}
+
 .hover\:prose-lg:hover {
   font-size: 1.125rem;
   line-height: 1.7777778;
@@ -6028,10 +6044,6 @@ body {
 }
 
 @media (min-width: 768px) {
-  .md\:flex {
-    display: flex;
-  }
-
   .md\:grid {
     display: grid;
   }
