@@ -55,9 +55,8 @@
                 
 
             </article>
-                
         
-            <!-- 前の記事・次の記事 -->
+                        <!-- 前の記事・次の記事 -->
             <div class="pt-12 grid grid-cols-1 md:grid-cols-2 bg-white">
                 <?php
                 $prev_post = get_previous_post();
@@ -103,6 +102,85 @@
                     <?php endif; ?>
                 </div>
             </div>
+
+            <!-- 関連する記事 -->
+            <?php
+            // 現在の投稿と同じタグを持つ記事から、共有タグ数の多い順に最大3件を表示
+            $current_tags = get_the_tags();
+            if ( $current_tags ) :
+                $tag_ids = wp_list_pluck( $current_tags, 'term_id' );
+
+                // まずは候補を十分に取得（orderbyは暫定、後でPHP側で重み付けソート）
+                $rel_query = new WP_Query( array(
+                    'post_type'           => 'post',
+                    'post__not_in'        => array( get_the_ID() ),
+                    'posts_per_page'      => 30,
+                    'ignore_sticky_posts' => 1,
+                    'tag__in'             => $tag_ids,
+                    'orderby'             => 'date',
+                    'order'               => 'DESC',
+                    'no_found_rows'       => true,
+                ) );
+
+                $related_posts = array();
+
+                if ( $rel_query->have_posts() ) :
+                    while ( $rel_query->have_posts() ) : $rel_query->the_post();
+                        $candidate_tag_ids = wp_get_post_tags( get_the_ID(), array( 'fields' => 'ids' ) );
+                        $overlap           = count( array_intersect( $tag_ids, $candidate_tag_ids ) );
+                        if ( $overlap > 0 ) {
+                            $related_posts[] = array(
+                                'ID'      => get_the_ID(),
+                                'overlap' => $overlap,
+                                'date'    => get_post_time( 'U' ), // タイブレーク用（新しい順）
+                            );
+                        }
+                    endwhile;
+                    wp_reset_postdata();
+
+                    if ( ! empty( $related_posts ) ) :
+                        // 重なりタグ数の多い順（同数なら新しい順）に並べ替え
+                        usort( $related_posts, function ( $a, $b ) {
+                            if ( $a['overlap'] === $b['overlap'] ) {
+                                return $b['date'] <=> $a['date'];
+                            }
+                            return $b['overlap'] <=> $a['overlap'];
+                        } );
+
+                        // 最大3件に絞る
+                        $related_posts = array_slice( $related_posts, 0, 3 );
+                        ?>
+                        <div class="pt-12">
+                            <div class="flex items-center gap-4 mb-4">
+                                <h2 class=" font-bold text-3xl text-neutral-500 uppercase">Related posts</h2>
+                                <h6 class="text-sm text-gray-500 font-bold">- 関連する記事</h6>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <?php foreach ( $related_posts as $rel ) :
+                                    $post_id   = $rel['ID'];
+                                    $permalink = get_permalink( $post_id );
+                                    $title     = get_the_title( $post_id );
+                                ?>
+                                    <a href="<?php echo esc_url( $permalink ); ?>" class="group block border border-[#F4F4F4] hover:shadow-sm transition-shadow duration-300">
+                                        <?php if ( has_post_thumbnail( $post_id ) ) : ?>
+                                            <div class="overflow-hidden">
+                                                <?php echo get_the_post_thumbnail( $post_id, 'medium', array( 'class' => 'w-full h-40 object-cover group-hover:opacity-90 transition-all duration-300' ) ); ?>
+                                            </div>
+                                        <?php endif; ?>
+                                        <div class="p-3">
+                                            <div class="text-xs text-gray-500 mb-1"><?php echo esc_html( get_the_date( '', $post_id ) ); ?></div>
+                                            <h3 class="text-sm font-semibold text-gray-900 truncate group-hover:text-[#E7685D] transition-colors duration-300"><?php echo esc_html( $title ); ?></h3>
+                                        </div>
+                                    </a>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                        <?php
+                    endif; // !empty($related_posts)
+                endif; // $rel_query->have_posts()
+            endif; // $current_tags
+            ?>
+                        
             <div class="mt-10 p-6 bg-[#F4F4F4] flex flex-col md:flex-row items-center md:items-start space-x-4">
                 <!-- 投稿者アイコン -->
                 <?php echo get_avatar( get_the_author_meta('ID'), 80, '', '', array( 'class' => 'w-36 h-36' ) ); ?>
