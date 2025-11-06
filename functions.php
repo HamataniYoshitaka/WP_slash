@@ -5,6 +5,14 @@ add_theme_support( 'post-thumbnails' );
 // コメント機能を有効にする
 add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 
+// --- All in One SEO の構造化データを完全に無効化 ---
+add_filter( 'aioseo_schema_disable', '__return_true' );
+add_filter( 'aioseo_schema_graph', '__return_empty_array' );
+// 構造化データの出力を完全に停止
+add_action( 'template_redirect', function() {
+    remove_action( 'wp_head', array( 'AIOSEO\\Plugin\\Schema\\Schema', 'output' ), 10 );
+}, 1 );
+
 // --- 構造化データ自動出力（AI Tech Media スラッシュ） ---
 add_action( 'wp_head', function () {
     if ( is_admin() || is_search() || is_feed() || ! is_singular() ) {
