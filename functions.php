@@ -198,4 +198,112 @@ add_action( 'wp_head', function () {
 
     echo "\n<!-- Structured Data Auto -->\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     echo "<script type='application/ld+json'>" . wp_json_encode( $json, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+    // パンくずリスト（BreadcrumbList）を出力
+    $breadcrumb_items = array();
+    $position = 1;
+
+    // ホーム
+    $breadcrumb_items[] = array(
+        '@type'    => 'ListItem',
+        'position' => $position++,
+        'name'     => 'ホーム',
+        'item'     => home_url( '/' ),
+    );
+
+    // カテゴリ（最初のカテゴリのみ）
+    if ( ! empty( $categories ) && ! empty( $categories[0] ) ) {
+        $category = $categories[0];
+        $breadcrumb_items[] = array(
+            '@type'    => 'ListItem',
+            'position' => $position++,
+            'name'     => $category->name,
+            'item'     => get_category_link( $category->term_id ),
+        );
+    }
+
+    // 現在の記事
+    $breadcrumb_items[] = array(
+        '@type'    => 'ListItem',
+        'position' => $position,
+        'name'     => get_the_title( $post ),
+        'item'     => $canonical_url,
+    );
+
+    $breadcrumb_json = array(
+        '@context'        => 'https://schema.org',
+        '@type'           => 'BreadcrumbList',
+        'itemListElement' => $breadcrumb_items,
+    );
+
+    echo "<script type='application/ld+json'>" . wp_json_encode( $breadcrumb_json, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 } );
+
+// --- WebSite構造化データ（サイト全体） ---
+add_action( 'wp_head', function () {
+    if ( is_admin() || is_feed() ) {
+        return;
+    }
+
+    $website_json = array(
+        '@context'        => 'https://schema.org',
+        '@type'           => 'WebSite',
+        'name'            => 'AI Tech Media スラッシュ',
+        'url'             => home_url( '/' ),
+        'potentialAction' => array(
+            '@type'       => 'SearchAction',
+            'target'      => home_url( '/?s={search_term_string}' ),
+            'query-input' => 'required name=search_term_string',
+        ),
+    );
+
+    echo "\n<!-- WebSite Structured Data -->\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+    echo "<script type='application/ld+json'>" . wp_json_encode( $website_json, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}, 5 );
+
+// --- Organization構造化データ（サイト全体） ---
+add_action( 'wp_head', function () {
+    if ( is_admin() || is_feed() ) {
+        return;
+    }
+
+    // ロゴ情報を取得
+    $logo_url = 'https://slashgear.jp/wp-content/themes/WP_slash/src/image/logo.webp';
+    $logo_schema = array(
+        '@type' => 'ImageObject',
+        'url'   => $logo_url,
+    );
+
+    // ロゴの幅・高さを取得（可能な場合）
+    $logo_path = get_template_directory() . '/src/image/logo.webp';
+    if ( file_exists( $logo_path ) ) {
+        $logo_size = @getimagesize( $logo_path );
+        if ( $logo_size !== false ) {
+            $logo_schema['width']  = $logo_size[0];
+            $logo_schema['height'] = $logo_size[1];
+        }
+    }
+
+    // SNSアカウント（必要に応じて追加）
+    $same_as = array();
+    // Twitter/X
+    $same_as[] = 'https://x.com/ai_tech_slash';
+    // 他のSNSアカウントがあればここに追加
+
+    $organization_json = array_filter(
+        array(
+            '@context' => 'https://schema.org',
+            '@type'    => 'Organization',
+            'name'     => 'AI Tech Media スラッシュ',
+            'url'      => home_url( '/' ),
+            'logo'     => $logo_schema,
+            'sameAs'   => ! empty( $same_as ) ? $same_as : null,
+        ),
+        function( $value ) {
+            return ! is_null( $value ) && $value !== '' && $value !== array();
+        }
+    );
+
+    echo "\n<!-- Organization Structured Data -->\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+    echo "<script type='application/ld+json'>" . wp_json_encode( $organization_json, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}, 5 );
