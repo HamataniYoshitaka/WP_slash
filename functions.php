@@ -26,6 +26,7 @@ add_action( 'wp_head', function () {
     }
 
     $type        = ( 'post' === get_post_type( $post ) ) ? 'NewsArticle' : 'Article';
+    $image_id    = get_post_thumbnail_id( $post );
     $image_url   = get_the_post_thumbnail_url( $post, 'full' );
     $description = get_the_excerpt( $post );
 
@@ -33,13 +34,47 @@ add_action( 'wp_head', function () {
         $description = wp_trim_words( wp_strip_all_tags( $post->post_content ), 55, '' );
     }
 
+    // 画像情報を取得（Google Discover対応）
+    $image_schema = null;
+    if ( $image_id && $image_url ) {
+        $image_meta = wp_get_attachment_image_src( $image_id, 'full' );
+        $image_schema = array(
+            '@type' => 'ImageObject',
+            'url'   => $image_url,
+        );
+        if ( $image_meta && isset( $image_meta[1] ) && isset( $image_meta[2] ) ) {
+            $image_schema['width']  = $image_meta[1];
+            $image_schema['height'] = $image_meta[2];
+        }
+    }
+
+    // ロゴ情報を取得（Google Discover対応）
+    $logo_url = 'https://slashgear.jp/wp-content/themes/WP_slash/src/image/logo.webp';
+    $logo_schema = array(
+        '@type' => 'ImageObject',
+        'url'   => $logo_url,
+    );
+
+    // ロゴの幅・高さを取得（可能な場合）
+    $logo_path = get_template_directory() . '/src/image/logo.webp';
+    if ( file_exists( $logo_path ) ) {
+        $logo_size = @getimagesize( $logo_path );
+        if ( $logo_size !== false ) {
+            $logo_schema['width']  = $logo_size[0];
+            $logo_schema['height'] = $logo_size[1];
+        }
+    }
+
     $json = array_filter(
         array(
             '@context'         => 'https://schema.org',
             '@type'            => $type,
-            'mainEntityOfPage' => get_permalink( $post ),
+            'mainEntityOfPage'  => array(
+                '@type' => 'WebPage',
+                '@id'   => get_permalink( $post ),
+            ),
             'headline'         => get_the_title( $post ),
-            'image'            => $image_url ? array( $image_url ) : null,
+            'image'            => $image_schema ? array( $image_schema ) : null,
             'datePublished'    => get_the_date( 'c', $post ),
             'dateModified'     => get_the_modified_date( 'c', $post ),
             'author'           => array(
@@ -50,10 +85,7 @@ add_action( 'wp_head', function () {
             'publisher'        => array(
                 '@type' => 'Organization',
                 'name'  => 'AI Tech Media スラッシュ',
-                'logo'  => array(
-                    '@type' => 'ImageObject',
-                    'url'   => 'https://slashgear.jp/wp-content/themes/WP_slash/src/image/logo.webp',
-                ),
+                'logo'  => $logo_schema,
             ),
             'description'      => wp_strip_all_tags( $description ),
         )
