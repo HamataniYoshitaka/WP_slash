@@ -2100,12 +2100,20 @@ video {
   width: 1.75rem;
 }
 
+.w-40 {
+  width: 10rem;
+}
+
 .min-w-0 {
   min-width: 0px;
 }
 
 .max-w-none {
   max-width: none;
+}
+
+.max-w-\[578px\] {
+  max-width: 578px;
 }
 
 .flex-1 {

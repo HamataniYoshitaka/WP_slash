@@ -14,7 +14,7 @@
         <?php if ($search_query === '') : ?>
             <div class="flex flex-col">
                     <p class="text-gray-700">No relevant search results found. Try a different search keyword.</p>
-                    <form id="search-form" action="<?php echo esc_url(home_url('/')); ?>" method="get" 
+                    <form action="<?php echo esc_url(home_url('/')); ?>" method="get" 
                         class=" mt-1 bg-white p-2 flex items-center gap-2 z-10">
                         <input name="s" type="text" placeholder="Search..." 
                             class="h-8 border border-gray-300 px-2 py-1 w-[578px]" />
@@ -76,7 +76,7 @@
             <?php else : ?>
                 <div class="flex flex-col">
                     <p class="text-gray-700">No relevant search results found. Try a different search keyword.</p>
-                    <form id="search-form" action="<?php echo esc_url(home_url('/')); ?>" method="get" 
+                    <form action="<?php echo esc_url(home_url('/')); ?>" method="get" 
                         class=" mt-1 bg-white p-2 flex items-center gap-2 z-10">
                         <input name="s" type="text" placeholder="Search..." 
                             class="h-8 border border-gray-300 px-2 py-1 w-[578px]" />
