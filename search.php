@@ -15,7 +15,7 @@
             <div class="flex flex-col">
                     <p class="text-gray-700">No relevant search results found. Try a different search keyword.</p>
                     <form id="search-form" action="<?php echo esc_url(home_url('/')); ?>" method="get" 
-                        class=" mt-1 bg-white p-2 flex items-center gap-2 z-50">
+                        class=" mt-1 bg-white p-2 flex items-center gap-2 z-10">
                         <input name="s" type="text" placeholder="Search..." 
                             class="h-8 border border-gray-300 px-2 py-1 w-[578px]" />
                         <button type="submit" class="px-2 py-1 text-white bg-[#E6675C] hover:brightness-50 flex justify-center items-center transition-all duration-500">
@@ -77,7 +77,7 @@
                 <div class="flex flex-col">
                     <p class="text-gray-700">No relevant search results found. Try a different search keyword.</p>
                     <form id="search-form" action="<?php echo esc_url(home_url('/')); ?>" method="get" 
-                        class=" mt-1 bg-white p-2 flex items-center gap-2 z-50">
+                        class=" mt-1 bg-white p-2 flex items-center gap-2 z-10">
                         <input name="s" type="text" placeholder="Search..." 
                             class="h-8 border border-gray-300 px-2 py-1 w-[578px]" />
                         <button type="submit" class="px-2 py-1 text-white bg-[#E6675C] hover:brightness-50 flex justify-center items-center transition-all duration-500">
