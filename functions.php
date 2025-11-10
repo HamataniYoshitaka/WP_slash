@@ -8,6 +8,19 @@ add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form'
 // cf7の改行を無効化
 add_filter( 'wpcf7_autop_or_not', '__return_false' );
 
+// contactページ以外はreCAPTCHAを外す
+function my_cf7_recaptcha_only_on_contact() {
+    $target_pages = array( 1959 );
+
+    // 対象ページじゃなかったら reCAPTCHA を外す
+    if ( ! is_page( $target_pages ) ) {
+        wp_dequeue_script( 'google-recaptcha' );
+        wp_dequeue_script( 'wpcf7-recaptcha' );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'my_cf7_recaptcha_only_on_contact', 99 );
+
+
 // --- All in One SEO の構造化データを完全に無効化 ---
 add_filter( 'aioseo_schema_disable', '__return_true' );
 add_filter( 'aioseo_schema_graph', '__return_empty_array' );
