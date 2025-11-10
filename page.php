@@ -69,5 +69,5 @@
         <?php get_sidebar(); ?>
     </div><!-- .bg-white -->
 <?php endwhile; endif; ?>
-
+<div class="px-6 py-3"></div>
 <?php get_footer(); ?>
