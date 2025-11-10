@@ -102,7 +102,7 @@
         <svg data-icon="close" class="w-5 h-auto text-white hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M376.6 84.5c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 178.7 52.7 39.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 224 7.4 363.3c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 269.3 331.3 408.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 224 376.6 84.5z"/></svg>
     </button>
 </div>
-<nav id="mobile-nav" class="fixed inset-0 bg-[#282828] text-[#C9564C] hidden md:hidden z-40">
+<nav id="mobile-nav" class="fixed inset-0 bg-[#282828] text-[#C9564C] opacity-0 pointer-events-none md:hidden z-40 transition-opacity duration-300 ease-out" aria-hidden="true">
     <div class="w-full h-full flex flex-col items-center justify-center gap-6 px-8 text-center text-lg font-medium">
         <a href="<?php echo home_url(); ?>/privacy-policy/" class="hover:text-[#E6675C] transition-colors duration-300">privacy policy</a>
         <a href="<?php echo home_url(); ?>/ethics/" class="hover:text-[#E6675C] transition-colors duration-300">ethics</a>
@@ -157,18 +157,22 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeIcon = toggleButton.querySelector('[data-icon="close"]');
 
     const toggleNav = (forceState) => {
-        const shouldOpen = forceState !== undefined ? forceState : overlay.classList.contains('hidden');
+        const shouldOpen = forceState !== undefined ? forceState : overlay.classList.contains('opacity-0');
 
         if (shouldOpen) {
-            overlay.classList.remove('hidden');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100');
             document.body.classList.add('overflow-hidden');
             toggleButton.setAttribute('aria-expanded', 'true');
+            overlay.setAttribute('aria-hidden', 'false');
             if (openIcon) openIcon.classList.add('hidden');
             if (closeIcon) closeIcon.classList.remove('hidden');
         } else {
-            overlay.classList.add('hidden');
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
             document.body.classList.remove('overflow-hidden');
             toggleButton.setAttribute('aria-expanded', 'false');
+            overlay.setAttribute('aria-hidden', 'true');
             if (openIcon) openIcon.classList.remove('hidden');
             if (closeIcon) closeIcon.classList.add('hidden');
         }
