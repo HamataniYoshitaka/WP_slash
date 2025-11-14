@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="<?php echo get_template_directory_uri(); ?>/src/output.css" rel="stylesheet">
+    <link href="<?php echo get_template_directory_uri(); ?>/src/output.css?v=<?php echo wp_get_theme()->get('Version'); ?>" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
@@ -137,7 +137,7 @@
     </button>
 
     <!-- 🔎 検索フォーム（最初は非表示） -->
-    <form action="<?php echo esc_url(home_url('/')); ?>" method="get" 
+    <form id="search-form" action="<?php echo esc_url(home_url('/')); ?>" method="get" 
             class="hidden absolute right-0 top-full mt-1 bg-white shadow-lg p-2 z-50">
         <div class="flex items-center gap-2">
             <input name="s" type="text" placeholder="Search..." 
@@ -152,9 +152,15 @@
 </div>
 
 <script>
-document.getElementById('search-toggle').addEventListener('click', function() {
-    const form = document.getElementById('search-form');
-    form.classList.toggle('hidden');
+document.addEventListener('DOMContentLoaded', function() {
+    const searchToggle = document.getElementById('search-toggle');
+    const searchForm = document.getElementById('search-form');
+    
+    if (searchToggle && searchForm) {
+        searchToggle.addEventListener('click', function() {
+            searchForm.classList.toggle('hidden');
+        });
+    }
 });
 
 document.addEventListener('DOMContentLoaded', function () {
