@@ -323,3 +323,15 @@ add_action( 'wp_head', function () {
     echo "\n<!-- Organization Structured Data -->\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     echo "<script type='application/ld+json'>" . wp_json_encode( $organization_json, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }, 5 );
+
+// --- ユーザープロフィールにカスタムフィールドを追加 ---
+add_filter( 'user_contactmethods', function( $contactmethods ) {
+    $contactmethods['note']      = 'note';
+    $contactmethods['x']         = 'X';
+    $contactmethods['tiktok']  = 'tiktok';
+    $contactmethods['instagram'] = 'instagram';
+    $contactmethods['suno']      = 'suno';
+    $contactmethods['sora']      = 'sora';
+    $contactmethods['facebook']  = 'facebook';
+    return $contactmethods;
+} );
