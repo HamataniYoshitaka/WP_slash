@@ -127,18 +127,12 @@
         </form>
     </div>
 </nav>
-<div class="hidden lg:block bg-[#282828] w-full h-11 border-b-2 border-[#E6675C]">
+<div class="hidden lg:block bg-[#282828] w-full border-b-2 border-[#E6675C]">
     <div class="xl:w-[1180px] mx-auto h-full border-r-2 border-[#333333] flex justify-end relative">
-    <!-- 🔍 検索ボタン -->
-    <button id="search-toggle" class="w-11 h-full hover:bg-[#E6675C] flex justify-center items-center transition-all duration-500">
-        <svg class="w-4 h-auto text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-            <path fill="currentColor" d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/>
-        </svg>
-    </button>
 
-    <!-- 🔎 検索フォーム（最初は非表示） -->
+    <!-- 検索フォーム -->
     <form id="search-form" action="<?php echo esc_url(home_url('/')); ?>" method="get" 
-            class="hidden absolute right-0 top-full mt-1 bg-white shadow-lg p-2 z-50">
+            class=" p-1">
         <div class="flex items-center gap-2">
             <input name="s" type="text" placeholder="Search..." 
                 class="h-8 border border-gray-300 px-2 py-1 w-48" />
@@ -152,16 +146,6 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const searchToggle = document.getElementById('search-toggle');
-    const searchForm = document.getElementById('search-form');
-    
-    if (searchToggle && searchForm) {
-        searchToggle.addEventListener('click', function() {
-            searchForm.classList.toggle('hidden');
-        });
-    }
-});
 
 document.addEventListener('DOMContentLoaded', function () {
     const toggleButton = document.getElementById('mobile-nav-toggle');
