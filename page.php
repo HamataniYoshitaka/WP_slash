@@ -30,7 +30,7 @@
             
                 <div class="">
                     <!-- 本文 -->
-                    <div class="prose prose-lg max-w-none prose-a:break-words">
+                    <div class="prose max-w-none prose-a:break-words">
                         <?php the_content(); ?>
                     </div>
                 </div>
