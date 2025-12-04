@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    <title>スラッシュ</title>
     <?php wp_head(); ?>
 </head>
 <body class="bg-[#F6F6F6]">
