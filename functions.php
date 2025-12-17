@@ -309,7 +309,7 @@ add_action( 'wp_head', function () {
     // SNSアカウント（必要に応じて追加）
     $same_as = array();
     // Twitter/X
-    $same_as[] = 'https://x.com/ai_tech_slash';
+    $same_as[] = 'https://x.com/tech_noisy_';
     // 他のSNSアカウントがあればここに追加
 
     $organization_json = array_filter(

@@ -87,7 +87,7 @@
         <div class="hidden w-48 h-full border-r-2 border-[#333333] text-white lg:flex justify-center items-center">
             <?php echo date('Y/m/d'); ?>
         </div>
-        <a href="https://x.com/ai_tech_slash" target="_blank" rel="noopener noreferrer" class="w-11 h-full hover:bg-[#E6675C] hidden lg:flex justify-center items-center transition-all duration-500" aria-label="X">
+        <a href="https://x.com/tech_noisy_" target="_blank" rel="noopener noreferrer" class="w-11 h-full hover:bg-[#E6675C] hidden lg:flex justify-center items-center transition-all duration-500" aria-label="X">
             <svg class="w-4 h-auto text-white" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path fill="currentColor" d="m714.163 519.284 446.727-519.284h-105.86l-387.893 450.887-309.809-450.887h-357.328l468.492 681.821-468.492 544.549h105.866l409.625-476.152 327.181 476.152h357.328l-485.863-707.086zm-144.998 168.544-47.468-67.894-377.686-540.2396h162.604l304.797 435.9906 47.468 67.894 396.2 566.721h-162.604l-323.311-462.446z"/>
             </svg>
@@ -112,7 +112,7 @@
         <a href="<?php echo home_url(); ?>/editorial-policies/" class="hover:text-[#E6675C] transition-colors duration-300">editorial policies</a>
         <a href="<?php echo home_url(); ?>/experts/" class="hover:text-[#E6675C] transition-colors duration-300">experts</a>
         <a href="<?php echo home_url(); ?>/contact/" class="hover:text-[#E6675C] transition-colors duration-300">contact</a>
-        <a href="https://x.com/ai_tech_slash" target="_blank" rel="noopener noreferrer" class="hover:text-[#E6675C] transition-colors duration-300 flex items-center gap-2" aria-label="X">
+        <a href="https://x.com/tech_noisy_" target="_blank" rel="noopener noreferrer" class="hover:text-[#E6675C] transition-colors duration-300 flex items-center gap-2" aria-label="X">
             <svg class="w-5 h-auto fill-current" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="m714.163 519.284 446.727-519.284h-105.86l-387.893 450.887-309.809-450.887h-357.328l468.492 681.821-468.492 544.549h105.866l409.625-476.152 327.181 476.152h357.328l-485.863-707.086zm-144.998 168.544-47.468-67.894-377.686-540.2396h162.604l304.797 435.9906 47.468 67.894 396.2 566.721h-162.604l-323.311-462.446z"/>
             </svg>
