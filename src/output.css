@@ -3240,9 +3240,9 @@ video {
   border-right-color: rgb(230 103 92 / var(--tw-border-opacity, 1));
 }
 
-.bg-\[\#282828\] {
+.bg-\[\#050a18\] {
   --tw-bg-opacity: 1;
-  background-color: rgb(40 40 40 / var(--tw-bg-opacity, 1));
+  background-color: rgb(5 10 24 / var(--tw-bg-opacity, 1));
 }
 
 .bg-\[\#E6675C\] {
@@ -6218,6 +6218,10 @@ body {
     width: 18rem;
   }
 
+  .md\:w-96 {
+    width: 24rem;
+  }
+
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -6238,12 +6242,21 @@ body {
     align-items: center;
   }
 
+  .md\:justify-between {
+    justify-content: space-between;
+  }
+
   .md\:gap-4 {
     gap: 1rem;
   }
 
   .md\:overflow-y-auto {
     overflow-y: auto;
+  }
+
+  .md\:px-32 {
+    padding-left: 8rem;
+    padding-right: 8rem;
   }
 
   .md\:text-left {

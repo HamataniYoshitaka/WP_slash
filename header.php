@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="apple-mobile-web-app-title" content="TECH NOISY">
     <?php wp_head(); ?>
 </head>
 <body class="bg-[#F6F6F6]">
@@ -93,18 +94,18 @@
         </a>
     </div>
 </div>
-<div class="w-full h-32 bg-transparent flex justify-between items-center px-32">
-    <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/src/image/logo.webp" alt="" class="w-56"></a>
+<div class="w-full h-32 bg-[#050a18] flex justify-center md:justify-between items-center md:px-32">
+    <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/src/image/logo-tn-l.webp" alt="" class="w-56 md:w-96"></a>
     <button id="mobile-nav-toggle" class="fixed top-0 right-0 z-50 flex md:hidden bg-[#E6675C] w-9 h-9 justify-center items-center transition-colors duration-300" aria-expanded="false" aria-controls="mobile-nav">
         <span class="sr-only">グローバルナビゲーションを開閉</span>
         <svg data-icon="open" class="w-7 h-auto text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="currentColor" d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"/></svg>
         <svg data-icon="close" class="w-5 h-auto text-white hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M376.6 84.5c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 178.7 52.7 39.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 224 7.4 363.3c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 269.3 331.3 408.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 224 376.6 84.5z"/></svg>
     </button>
 </div>
-<nav id="mobile-nav" class="fixed inset-0 bg-[#282828] text-[#C9564C] opacity-0 pointer-events-none md:hidden z-40 transition-opacity duration-300 ease-out" aria-hidden="true">
+<nav id="mobile-nav" class="fixed inset-0 bg-[#050a18] text-[#C9564C] opacity-0 pointer-events-none md:hidden z-40 transition-opacity duration-300 ease-out" aria-hidden="true">
     <div class="w-full h-full flex flex-col items-center justify-center gap-6 px-8 text-center text-lg font-medium">
         <a href="<?php echo home_url(); ?>" class="">
-            <img src="<?php echo get_template_directory_uri(); ?>/src/image/logo-white.webp" alt="" class="w-40">
+            <img src="<?php echo get_template_directory_uri(); ?>/src/image/logo-tn-l.webp" alt="" class="w-56">
         </a>
         <a href="<?php echo home_url(); ?>/privacy-policy/" class="hover:text-[#E6675C] transition-colors duration-300">privacy policy</a>
         <a href="<?php echo home_url(); ?>/ethics/" class="hover:text-[#E6675C] transition-colors duration-300">ethics</a>
@@ -126,7 +127,7 @@
         </form>
     </div>
 </nav>
-<div class="hidden lg:block bg-[#282828] w-full border-b-2 border-[#E6675C]">
+<div class="hidden lg:block bg-[#050a18] w-full border-b-2 border-[#E6675C]">
     <div class="xl:w-[1180px] mx-auto h-full border-r-2 border-[#333333] flex justify-end relative">
 
     <!-- 検索フォーム -->
@@ -189,9 +190,9 @@ document.addEventListener('DOMContentLoaded', function () {
 </div>
 
 
-<div id="header" class="fixed top-0 bg-[#282828] w-full h-11 border-b-2 border-[#E6675C] -translate-y-full transition-transform duration-700 z-50 hidden lg:flex items-center">
+<div id="header" class="fixed top-0 bg-[#050a18] w-full h-11 border-b-2 border-[#E6675C] -translate-y-full transition-transform duration-700 z-50 hidden lg:flex items-center">
     <a href="<?php echo home_url(); ?>">
-        <img src="<?php echo get_template_directory_uri(); ?>/src/image/logo-white.webp" alt="" class="w-24 ml-32">
+        <img src="<?php echo get_template_directory_uri(); ?>/src/image/logo-tn-s.webp" alt="" class="w-40 ml-32">
     </a>
 </div>
 

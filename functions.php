@@ -104,14 +104,14 @@ add_action( 'wp_head', function () {
     }
 
     // ロゴ情報を取得（Google Discover対応）
-    $logo_url = 'https://slashgear.jp/wp-content/themes/WP_slash/src/image/logo.webp';
+    $logo_url = 'https://slashgear.jp/wp-content/themes/WP_slash/src/image/logo-tn-l.webp';
     $logo_schema = array(
         '@type' => 'ImageObject',
         'url'   => $logo_url,
     );
 
     // ロゴの幅・高さを取得（可能な場合）
-    $logo_path = get_template_directory() . '/src/image/logo.webp';
+    $logo_path = get_template_directory() . '/src/image/logo-tn-l.webp';
     if ( file_exists( $logo_path ) ) {
         $logo_size = @getimagesize( $logo_path );
         if ( $logo_size !== false ) {
@@ -290,14 +290,14 @@ add_action( 'wp_head', function () {
     }
 
     // ロゴ情報を取得
-    $logo_url = 'https://slashgear.jp/wp-content/themes/WP_slash/src/image/logo.webp';
+    $logo_url = 'https://slashgear.jp/wp-content/themes/WP_slash/src/image/logo-tn-l.webp';
     $logo_schema = array(
         '@type' => 'ImageObject',
         'url'   => $logo_url,
     );
 
     // ロゴの幅・高さを取得（可能な場合）
-    $logo_path = get_template_directory() . '/src/image/logo.webp';
+    $logo_path = get_template_directory() . '/src/image/logo-tn-l.webp';
     if ( file_exists( $logo_path ) ) {
         $logo_size = @getimagesize( $logo_path );
         if ( $logo_size !== false ) {

@@ -1,4 +1,4 @@
-<div class="w-full bg-[#282828]">
+<div class="w-full bg-[#050a18]">
     <div class="xl:w-[1180px] mx-auto p-12 flex">
         <div class=" flex flex-col md:flex-row justify-around md:items-center w-full text-[#C9564C] ">
             <a href="<?php echo home_url(); ?>/privacy-policy/" class="hover:text-[#E6675C] transition-all duration-300 p-1">privacy policy</a>
