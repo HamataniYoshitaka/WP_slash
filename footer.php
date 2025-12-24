@@ -15,9 +15,7 @@
     </div>
 </div>
 <div class="w-full h-10 bg-black flex justify-center items-center">
-    <p class="text-xs text-[#b7b7b7]">Copyright &copy; <?php echo date('Y'); ?> AI TECH MEDIA スラッシュ. All rights reserved.</p>
-</div>
-
+    <p class="text-xs text-[#b7b7b7]">Copyright &copy; <?php echo date('Y'); ?> TECH NOISY All rights reserved.</p>
 <?php wp_footer(); ?>
 </body>
 </html>

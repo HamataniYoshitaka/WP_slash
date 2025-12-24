@@ -35,7 +35,7 @@ add_action( 'template_redirect', function() {
     remove_action( 'wp_head', array( 'AIOSEO\\Plugin\\Schema\\Schema', 'output' ), 10 );
 }, 1 );
 
-// --- 構造化データ自動出力（AI Tech Media スラッシュ） ---
+// --- 構造化データ自動出力（TECH NOISY） ---
 add_action( 'wp_head', function () {
     if ( is_admin() || is_search() || is_feed() || ! is_singular() ) {
         return;
@@ -104,7 +104,7 @@ add_action( 'wp_head', function () {
     }
 
     // ロゴ情報を取得（Google Discover対応）
-    $logo_url = 'https://slashgear.jp/wp-content/themes/WP_slash/src/image/logo-tn-l.webp';
+    $logo_url = 'https://tech-noisy.com/wp-content/themes/WP_slash/src/image/logo-tn-l.webp';
     $logo_schema = array(
         '@type' => 'ImageObject',
         'url'   => $logo_url,
@@ -201,7 +201,7 @@ add_action( 'wp_head', function () {
             ),
             'publisher'        => array(
                 '@type' => 'Organization',
-                'name'  => 'AI Tech Media スラッシュ',
+                'name'  => 'TECH NOISY',
                 'logo'  => $logo_schema,
             ),
             'description'      => wp_strip_all_tags( $description ),
@@ -270,7 +270,7 @@ add_action( 'wp_head', function () {
     $website_json = array(
         '@context'        => 'https://schema.org',
         '@type'           => 'WebSite',
-        'name'            => 'AI Tech Media スラッシュ',
+        'name'            => 'TECH NOISY',
         'url'             => home_url( '/' ),
         'potentialAction' => array(
             '@type'       => 'SearchAction',
@@ -290,7 +290,7 @@ add_action( 'wp_head', function () {
     }
 
     // ロゴ情報を取得
-    $logo_url = 'https://slashgear.jp/wp-content/themes/WP_slash/src/image/logo-tn-l.webp';
+    $logo_url = 'https://tech-noisy.com/wp-content/themes/WP_slash/src/image/logo-tn-l.webp';
     $logo_schema = array(
         '@type' => 'ImageObject',
         'url'   => $logo_url,
@@ -316,7 +316,7 @@ add_action( 'wp_head', function () {
         array(
             '@context' => 'https://schema.org',
             '@type'    => 'Organization',
-            'name'     => 'AI Tech Media スラッシュ',
+            'name'     => 'TECH NOISY',
             'url'      => home_url( '/' ),
             'logo'     => $logo_schema,
             'sameAs'   => ! empty( $same_as ) ? $same_as : null,
